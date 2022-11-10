@@ -1,0 +1,51 @@
+version: '3.1'
+
+services:
+  sql_database:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: on-failure:5
+    environment:
+      - MYSQL_ROOT_PASSWORD=adminpassword
+      - MYSQL_DATABASE=app
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=password
+    ports:
+      - 3306:3306
+    volumes:
+      - dbdata:/var/lib/mysql
+      - "./auth_server/init-db-script.sql:/docker-entrypoint-initdb.d/01.sql"
+    healthcheck:
+            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+            timeout: 20s
+            retries: 10
+
+  auth_server:
+    build: auth_server
+    ports:
+      - 8443:8443
+      - 8081:8080
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=adminpassword
+      - KC_FEATURES=token-exchange
+      - KC_DB=mysql
+      - KC_DB_USERNAME=root
+      - KC_DB_PASSWORD=adminpassword
+      - KC_DB_URL=jdbc:mysql://sql_database:3306/keycloak
+      - KC_HOSTNAME=127.0.0.1
+    volumes:
+      - "./auth_server/realm_export/:/auth_server/"
+    command: export --dir /auth_server --users same_file --realm python-ex1
+    healthcheck:
+      test: "curl --fail --silent localhost:8080/health | grep UP || exit 1"
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    depends_on:
+      sql_database:
+        condition: service_healthy
+
+volumes:
+  dbdata:

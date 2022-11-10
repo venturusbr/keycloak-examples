@@ -1,0 +1,96 @@
+{
+  "realm" : "python-ex1",
+  "users" : [ {
+    "id" : "ecc51996-897f-41b5-a310-b953ecf4c855",
+    "createdTimestamp" : 1667569861602,
+    "username" : "admin1",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : false,
+    "firstName" : "Admin",
+    "lastName" : "Test 1",
+    "credentials" : [ {
+      "id" : "cbe607d4-a774-4d7c-afe3-8245884a5eb1",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1667946193890,
+      "secretData" : "{\"value\":\"DmHml6Gq3/mKN32aKpYA/FI8KUMMZvku0fIwVvBSNL6RSb5XGDU28htEU7nZQb0DXGi4GIUnlrj6JktzSpzl2Q==\",\"salt\":\"XOmZ2508RfVKsCYx5M2vcA==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-python-ex1", "admin_user" ],
+    "clientRoles" : {
+      "python-ex1" : [ "read_data" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "53aed339-c8e2-40e7-a9f8-6cf18208161e",
+    "createdTimestamp" : 1667569597892,
+    "username" : "service-account-python-ex1",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : false,
+    "serviceAccountClientId" : "python-ex1",
+    "credentials" : [ ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-python-ex1", "client" ],
+    "clientRoles" : {
+      "python-ex1" : [ "uma_protection" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "5f6d993c-5229-4ea4-a1c6-d6fdbb7edec0",
+    "createdTimestamp" : 1667569713677,
+    "username" : "user1",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : false,
+    "firstName" : "User",
+    "lastName" : "Test 1",
+    "credentials" : [ {
+      "id" : "c4239fac-478c-441d-b27f-84083d317ee8",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1667569746153,
+      "secretData" : "{\"value\":\"G3LIskCy5gEqLygs1xBe38nDLccHP58lCElcMx+m80t9Dmm6Nnxj7U7O38WeNeKB8b1S55BvpDLxVr+r19v03w==\",\"salt\":\"HCPa2Z1dAQDrJRL87hhaDw==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-python-ex1", "common_user" ],
+    "clientRoles" : {
+      "python-ex1" : [ "read_data" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "38aa6cd0-3f57-4d79-b3b8-57af65558651",
+    "createdTimestamp" : 1667729893304,
+    "username" : "user2",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : false,
+    "firstName" : "User2",
+    "lastName" : "Test2",
+    "credentials" : [ {
+      "id" : "953c3f48-f308-41b7-b1b4-a71b84403def",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1667729910689,
+      "secretData" : "{\"value\":\"Xm+/o0thAYiwh43yfg7yqIME3HxOkIMurSYIN73xjnk6gq0VWQaLwZItIHqPITTXKB/xhDBb09uQGJJqlbXYIg==\",\"salt\":\"nGwSAHE/4y10v/NGQLPAnA==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-python-ex1", "common_user" ],
+    "clientRoles" : {
+      "python-ex1" : [ "write_data", "read_data" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}
